@@ -1,0 +1,26 @@
+# install homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+# install postgresql
+brew install postgresql
+# start homebrew postgresql service
+brew service start postgresql
+# create a database with your username
+createdb `whoami`
+# test postgresql by running
+psql -h localhost
+# to exit psql prompt type
+\q
+# install python 3
+brew install python3
+# intall virtualenv
+pip3 install virtualenv
+# create virtualenv with python3 as base
+virtualenv -p /usr/local/bin/python3 .virtualenvs/psql-env
+# activate psql-env virtualenv
+source .virtualenvs/psql-env/bin/activate
+# update wheel, setuptools and pip
+pip install --update pip
+pip install --update wheel
+pip install --update setuptools
+# install psycopg2
+pip install psycopg2
